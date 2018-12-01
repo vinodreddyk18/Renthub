@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 public class ApartmentController {
 
     @Autowired(required = true)
@@ -33,11 +33,11 @@ public class ApartmentController {
         apartmentService.insertApartment(apartment);
         return ResponseEntity.accepted().body(" ") ;
     }
-    /*@RequestMapping(value="/get",method = RequestMethod.GET)
+    @RequestMapping(value="/get",method = RequestMethod.GET)
     public List<Apartment> getall(){
 
         return apartmentService.getApartment();
-    }*/
+    }
 
     @RequestMapping(value = "/get/{zipcode}", method = RequestMethod.GET)
     public List<Apartment> getSelectedApartments(@PathVariable Integer zipcode){
